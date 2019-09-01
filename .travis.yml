@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+    - node
+before_script:
+    - npm install
+script:
+    - npm run build
+deploy:
+    provider: pages
+    local_dir: dist
+    skip-cleanup: true
+    repo: ThomasAndrewMacLean/base
+    github-token: $GITHUB_TOKEN # Set in the settings page of your repository, as a secure variable
+    target_branch: gh-pages
+    #fqdn: custom domain
+on:
+    branch: master
